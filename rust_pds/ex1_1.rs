@@ -1,4 +1,4 @@
-fn is_leap(year: &u32) -> bool {
+fn is_leap(year: u32) -> bool {
     if year % 4 == 0 {
         if year % 100 == 0 {
             if year % 400 == 0 {
@@ -21,7 +21,7 @@ fn main() {
         .trim()
         .parse()
         .expect("Please enter an 32 bit unsigned integer");
-    if is_leap(&year) {
+    if is_leap(year) {
         println!("Yes");
     } else {
         println!("No");
