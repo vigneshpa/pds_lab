@@ -1,59 +1,59 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
+
 class Node
 {
-	public:
-		int data;
-		Node *next;
+public:
+	int data;
+	Node *next;
+	Node()
+	{
+		next = NULL;
+	}
 };
+
 class List
 {
-	private:
-		Node *head;
-	public:
-		List()
+public:
+	Node *head;
+	List()
+	{
+		head = NULL;
+	}
+	void create(int arr[], int n)
+	{
+		Node *prev = NULL;
+		for (int i = 0; i < n; i++)
 		{
-			head=NULL;
-		}
-		void createList(int a[],int n)
-		{
-			for(int i=0;i<n;i++)
+			Node *a = new Node();
+			a->data = arr[i];
+			if (prev == NULL)
 			{
-				Node *n=new Node;
-				n->data=a[i];
-				n->next=NULL;
-				if(head==NULL)
-				{
-					head=n;
-				}
-				else
-				{
-					Node *temp=head;
-					while(temp->next!=NULL)
-					{
-						temp=temp->next;
-					}
-					temp->next=n;
-				}
+				head = a;
 			}
-		}
-		void dispList()
-		{
-			Node *temp=head;
-			while(temp!=NULL)
+			else
 			{
-				cout<<temp->data<<' ';
-				temp=temp->next;
+				prev->next = a;
 			}
+			prev = a;
 		}
+	}
+	void display()
+	{
+		Node *temp = head;
+		while (temp != NULL)
+		{
+			cout << temp->data << ' ';
+			temp = temp->next;
+		}
+	}
 };
 int main()
 {
-	List l;
-	int values[]={1,2,3,4,5},n=sizeof(values)/sizeof(int);
-	l.createList(values,n);
-	cout<<"Created List : ";
-	l.dispList();
-	return 0;
+	int arr[] = {1, 2, 3, 4, 5};
+	int n = 5;
+	List a;
+	a.create(arr, n);
+	a.display();
+	cout << endl;
 }
-
