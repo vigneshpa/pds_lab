@@ -1,50 +1,42 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 class linear
 {
-	int arr[10],item;
-	public:
+	int arr[10], item;
+
+public:
 	linear(int n)
 	{
-		cout<<"Enter the Array Elements : ";
-		for(int i=0;i<n;i++)
+		cout << "Enter the Array Elements : ";
+		for (int i = 0; i < n; i++)
 		{
-			cin>>arr[i];
+			cin >> arr[i];
 		}
-		cout<<"Enter the Item : ";
-		cin>>item;
-		if(check(arr,n,item)>n)
+		cout << "Enter the Item : ";
+		cin >> item;
+		int pos = search(arr, n, item);
+		if (pos > n)
 		{
-			cout<<"Invalid Search";
+			cout << "Invalid Search";
 		}
 		else
 		{
-			cout<<check(arr,n,item);
+			cout << pos;
 		}
 	}
-	int check(int a[],int n,int data)
+	int search(int a[], int n, int data)
 	{
-		int k=1;
-		for(int i=0;i<n;i++)
-		{
-			if(a[i]==item)
-			{
-				return k;
-				break;
-			}
-			k++;
-		}
-		if(k>n)
-		{
-			return k;
-		}
+		for (int i = 0; i < n; i++)
+			if (a[i] == item)
+				return i + 1;
+		return n + 1;
 	}
-};				
+};
 int main()
 {
 	int n;
-	cout<<"Enter the Size of the Array : ";
-	cin>>n;
+	cout << "Enter the Size of the Array : ";
+	cin >> n;
 	linear l(n);
 	return 0;
-}		
+}
