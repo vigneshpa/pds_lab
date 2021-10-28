@@ -1,30 +1,28 @@
 #include <iostream>
 using namespace std;
-class Number {
+class Number{
   int *ar, n;
   int sum;
-
 public:
-  Number(int s) {
+  Number(int s){
     n = s;
     ar = new int[n];
   }
-  void read_ar() {
-    for (int i = 0; i < n; i++)
+  void read_ar(){
+    for(int i=0;i<n;i++)
       cin >> ar[i];
   }
-  int calc_sum() {
+  int calc_sum(){
     sum = 0;
-    for (int i = 0; i < n; i++)
-      sum = sum + ar[i];
+    for(int i=0; i< n;i++)
+      sum += ar[i];
     return sum;
   }
-
-  ~Number() {
+  ~Number(){
     delete[] ar;
   }
 };
-int main() {
+int main(){
   int n;
   cout << "N: ";
   cin >> n;
