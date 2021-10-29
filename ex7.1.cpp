@@ -43,5 +43,5 @@ int main()
 		s.pop();
 	}
 
-	return 0;
+	cout << endl;
 }
