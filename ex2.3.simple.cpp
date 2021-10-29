@@ -3,7 +3,7 @@ using namespace std;
 class Number {
   int ar[50], n;
 public:
-  friend float find_mean(Number &a);
+  friend float find_mean(Number a);
   Number(){
     cout << "N: ";
     cin >> n;
@@ -12,13 +12,14 @@ public:
       cin >> ar[i];
   };
 };
-float find_mean(Number &a){
+float find_mean(Number a){
   float sum = 0;
   for(int i=0;i<a.n;i++)
     sum += a.ar[i];
-  float mean = (float)sum / a.n;
+  return (float)sum / a.n;
 }
 int main(){
   Number a;
   cout << "Mean: " << find_mean(a) << endl;
+  return 0;
 }
