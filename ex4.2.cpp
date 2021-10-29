@@ -1,16 +1,18 @@
 #include <iostream>
 using namespace std;
-class svceian{
-  protected:
-    string name,email,dept;
-  public:
-    void read();
-    void display();
-};
-class faculty:virtual public svceian{
-  string empid,grade;
+class svceian {
+protected:
+  string name, email, dept;
+
 public:
-  void read(){
+  void read();
+  void display();
+};
+class faculty : virtual public svceian {
+  string empid, grade;
+
+public:
+  void read() {
     cout << "Name: ";
     cin >> name;
     cout << "Email: ";
@@ -22,7 +24,7 @@ public:
     cout << "Grade: ";
     cin >> grade;
   }
-  void display(){
+  void display() {
     cout << "Name: " << name << endl;
     cout << "Email: " << email << endl;
     cout << "Department: " << dept << endl;
@@ -30,10 +32,11 @@ public:
     cout << "Grade: " << grade << endl;
   }
 };
-class student:virtual public svceian{
-  string rollno,degree;
+class student : virtual public svceian {
+  string rollno, degree;
+
 public:
-  void read(){
+  void read() {
     cout << "Name: ";
     cin >> name;
     cout << "Email: ";
@@ -45,18 +48,19 @@ public:
     cout << "Degree: ";
     cin >> degree;
   }
-  void display(){
+  void display() {
     cout << "Name: " << name << endl;
     cout << "Email: " << email << endl;
     cout << "Department: " << dept << endl;
     cout << "Roll No: " << rollno << endl;
-    cout<<"Degree: " << degree << endl;
+    cout << "Degree: " << degree << endl;
   }
 };
-class researcher:public faculty,public student{
-  string resid,restype;
+class researcher : public faculty, public student {
+  string resid, restype;
+
 public:
-  void read(){
+  void read() {
     cout << "Name: ";
     cin >> name;
     cout << "Email: ";
@@ -68,7 +72,7 @@ public:
     cout << "Res Type: ";
     cin >> restype;
   }
-  void display(){
+  void display() {
     cout << "Name: " << name << endl;
     cout << "Email: " << email << endl;
     cout << "Department: " << dept << endl;
@@ -76,7 +80,7 @@ public:
     cout << "Res Type: " << restype << endl;
   }
 };
-int main(){
+int main() {
   cout << endl << "Faculty Details" << endl;
   faculty f;
   f.read();
