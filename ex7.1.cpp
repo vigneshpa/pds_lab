@@ -1,59 +1,47 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class Node
+class Stack
 {
-	public:
-		int data;
-		Node *next;
+public:
+	int arr[100], top;
+
+	Stack()
+	{
+		top = -1;
+	}
+	void push(int data)
+	{
+		arr[++top] = data;
+	}
+#define MAX 1000
+	int pop()
+	{
+		return arr[top--];
+	}
+	int peek()
+	{
+		return arr[top];
+	}
+
+	bool isEmpty()
+	{
+		return (top < 0);
+	}
 };
-class List
-{
-	private:
-		Node *head;
-	public:
-		List()
-		{
-			head=NULL;
-		}
-		void createList(int a[],int n)
-		{
-			for(int i=0;i<n;i++)
-			{
-				Node *n=new Node;
-				n->data=a[i];
-				n->next=NULL;
-				if(head==NULL)
-				{
-					head=n;
-				}
-				else
-				{
-					Node *temp=head;
-					while(temp->next!=NULL)
-					{
-						temp=temp->next;
-					}
-					temp->next=n;
-				}
-			}
-		}
-		void dispList()
-		{
-			Node *temp=head;
-			while(temp!=NULL)
-			{
-				cout<<temp->data<<' ';
-				temp=temp->next;
-			}
-		}
-};
+
 int main()
 {
-	List l;
-	int values[]={1,2,3,4,5},n=sizeof(values)/sizeof(int);
-	l.createList(values,n);
-	cout<<"Created List : ";
-	l.dispList();
+	class Stack s;
+	s.push(10);
+	s.push(20);
+	s.push(30);
+	cout << s.pop() << " Popped from stack\n";
+	cout << "Elements present in stack : ";
+	while (!s.isEmpty())
+	{
+		cout << s.peek() << " ";
+		s.pop();
+	}
+
 	return 0;
 }
-
