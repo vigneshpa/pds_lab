@@ -2,14 +2,14 @@
 using namespace std;
 class linear
 {
-	int arr[100], n, item;
-
 public:
-	linear(int n)
+	int arr[100], n, item;
+	linear(int no = 0)
 	{
-		item = n = 0;
+		n = no;
+		item = 0;
 	}
-	int search(int data)
+	int search()
 	{
 		for (int i = 0; i < n; i++)
 			if (arr[i] == item)
@@ -18,7 +18,7 @@ public:
 	}
 	void read_array()
 	{
-		cout << "Enter the values of array";
+		cout << "Enter the values of array : ";
 		for (int i = 0; i < n; i++)
 		{
 			cin >> arr[i];
@@ -33,10 +33,9 @@ int main()
 	linear l(n);
 	l.read_array();
 
-	int item;
-	cout << "Enter the value to search";
-	cin >> item;
-	int ret = l.search(item);
-	cout << "The item is found at " << ret << " position";
+	cout << "Enter the value to search : ";
+	cin >> l.item;
+	int ret = l.search();
+	cout << "The item is found at " << ret << " position" << endl;
 	return 0;
 }
