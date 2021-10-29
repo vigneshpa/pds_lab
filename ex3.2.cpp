@@ -40,7 +40,7 @@ public:
       for(int j=0;j<m.cols;j++){
         c.a[i][j] = 0;
         for(int k=0;k<m.rows;k++)
-          c.a[i][j] += a[i][k] * m.a[i][k];
+          c.a[i][j] += a[i][k] * m.a[k][j];
       }
     return c;
   };
