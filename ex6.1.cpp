@@ -86,7 +86,7 @@ class List
 				return temp;
 			temp = temp->next;
 		}
-		cout << endl;
+		return NULL;
 	}
 	~List()
 	{
