@@ -47,5 +47,4 @@ int main() {
   Rectangle rect(l, b);
   rect.calculate_area();
   rect.display_area();
-  cout << "Hi";
 }
