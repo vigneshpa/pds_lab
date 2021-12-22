@@ -1,4 +1,5 @@
 #include <iostream>
+#define MAX 1000
 using namespace std;
 class Stack {
 public:
@@ -6,14 +7,14 @@ public:
 
   Stack() { top = -1; }
   void push(int data) {
-    if (top == MAX) {
+    if (top == MAX - 1) {
       cout << "!! Stack Overflow: Stack is full";
       return;
     }
     arr[++top] = data;
   }
   int pop() {
-    if (top == 0) {
+    if (top == -1) {
       cout << "!! Stack Underflow: Stack is empty";
       return NULL;
     }
