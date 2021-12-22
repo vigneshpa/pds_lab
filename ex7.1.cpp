@@ -1,9 +1,8 @@
 #include <iostream>
 using namespace std;
-#define MAX 1000
 class Stack {
 public:
-  int arr[MAX], top;
+  int arr[100], top;
 
   Stack() { top = -1; }
   void push(int data) { arr[++top] = data; }
