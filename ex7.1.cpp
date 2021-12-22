@@ -2,11 +2,23 @@
 using namespace std;
 class Stack {
 public:
-  int arr[100], top;
+  int arr[MAX], top;
 
   Stack() { top = -1; }
-  void push(int data) { arr[++top] = data; }
-  int pop() { return arr[top--]; }
+  void push(int data) {
+    if (top == MAX) {
+      cout << "!! Stack Overflow: Stack is full";
+      return;
+    }
+    arr[++top] = data;
+  }
+  int pop() {
+    if (top == 0) {
+      cout << "!! Stack Underflow: Stack is empty";
+      return NULL;
+    }
+    return arr[top--];
+  }
   int peek() { return arr[top]; }
 
   bool isEmpty() { return (top < 0); }
